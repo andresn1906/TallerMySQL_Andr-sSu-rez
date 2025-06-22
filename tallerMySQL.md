@@ -184,9 +184,9 @@ INSERT INTO Ciudades(id,nombre_ciudad,región_id,código_id) VALUES
 (2,'Bucaramanga',2,2);
 
 INSERT INTO DatosEmpleados(id,nombre,salario,puesto_id,fecha_contrato) VALUES
-(1, 'Andrés Suárez', 3500000.00, 1, '2024-05-01'),
-(2, 'Miguel Rojas', 2000000.00, 2, '2022-01-15'),
-(3, 'Fabio Hernández', 2700000.00, 1, '2025-03-20');
+(1,'Andrés Suárez',3500000.00,1,'2024-05-01'),
+(2,'Miguel Rojas',2000000.00,2,'2022-01-15'),
+(3,'Fabio Hernández',2700000.00,1,'2025-03-20');
 
 INSERT INTO Ubicaciones(id,dirección,ciudad_id) VALUES
 (1,'Carrera 25 #26-08', 2), 
@@ -218,12 +218,12 @@ INSERT INTO ContactoProveedores(id,descripcion,tipo_id) VALUES
 (2,'3138430142',1);
 
 INSERT INTO Tipos_productos(id,tipo_nombre,descripción,padre_id) VALUES
-(1, 'Electrónica', 'Productos electrónicos',NULL), 
-(2, 'Accesorios', 'Accesorios tecnológicos', 1);
+(1,'Electrónica','Productos electrónicos',NULL), 
+(2,'Accesorios','Accesorios tecnológicos',1);
 
 INSERT INTO Proveedores(id,nombre,contactoproveedores_id,ubicacion_id) VALUES
-(1, 'Alkatronix',1,4),
-(2, 'Electronix',2,5);
+(1,'Alkatronix',1,4),
+(2,'Electronix',2,5);
 
 INSERT INTO EmpleadosProveedores(empleados_id,proveedores_id) VALUES
 (1,1),
@@ -761,9 +761,9 @@ Query OK, 2 rows affected (0.05 sec)
 Records: 2  Duplicates: 0  Warnings: 0
 
 INSERT INTO DatosEmpleados(id,nombre,salario,puesto_id,fecha_contrato) VALUES
-    -> (1, 'Andrés Suárez', 3500000.00, 1, '2024-05-01'),
-    -> (2, 'Miguel Rojas', 2000000.00, 2, '2022-01-15'),
-    -> (3, 'Fabio Hernández', 2700000.00, 1, '2025-03-20');
+    -> (1,'Andrés Suárez',3500000.00,1,'2024-05-01'),
+    -> (2,'Miguel Rojas',2000000.00,2,'2022-01-15'),
+    -> (3,'Fabio Hernández',2700000.00,1,'2025-03-20');
 Query OK, 3 rows affected (0.07 sec)
 Records: 3  Duplicates: 0  Warnings: 0
 
@@ -807,14 +807,14 @@ Query OK, 2 rows affected (0.66 sec)
 Records: 2  Duplicates: 0  Warnings: 0
 
 INSERT INTO Tipos_productos(id,tipo_nombre,descripción,padre_id) VALUES
-    -> (1, 'Electrónica', 'Productos electrónicos',NULL),
-    -> (2, 'Accesorios', 'Accesorios tecnológicos', 1);
+    -> (1,'Electrónica','Productos electrónicos',NULL),
+    -> (2,'Accesorios','Accesorios tecnológicos',1);
 Query OK, 2 rows affected (0.24 sec)
 Records: 2  Duplicates: 0  Warnings: 0
 
 INSERT INTO Proveedores(id,nombre,contactoproveedores_id,ubicacion_id) VALUES
-    -> (1, 'Alkatronix',1,4),
-    -> (2, 'Electronix',2,5);
+    -> (1,'Alkatronix',1,4),
+    -> (2,'Electronix',2,5);
 Query OK, 2 rows affected (0.25 sec)
 Records: 2  Duplicates: 0  Warnings: 0
 
