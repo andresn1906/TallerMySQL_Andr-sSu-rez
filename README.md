@@ -28,3 +28,5 @@ Este proyecto SQL es un sistema completo para gestionar pedidos, productos, empl
 4. Probar las consultas
 
 > Hecho con esfuerzo y lógica relacional :muscle:
+>
+> ### Clonar el repositorio para ver claramente los Resultados (ítem 7 en tallerMySQL).
