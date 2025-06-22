@@ -1,5 +1,7 @@
 # Taller MySQL: Andrés Suárez Niño
 
+### Clonar el repositorio para ver claramente los Resultados (ítem 7 en tallerMySQL).
+
 ## 🚀 Proyecto Base de Datos: Gestión Comercial
 
 Este proyecto SQL es un sistema completo para gestionar pedidos, productos, empleados, proveedores y clientes. Incluye estructuras normalizadas, relaciones complejas y consultas avanzadas.
@@ -28,5 +30,3 @@ Este proyecto SQL es un sistema completo para gestionar pedidos, productos, empl
 4. Probar las consultas
 
 > Hecho con esfuerzo y lógica relacional :muscle:
->
-> ### Clonar el repositorio para ver claramente los Resultados (ítem 7 en tallerMySQL).
