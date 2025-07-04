@@ -15,7 +15,7 @@ Este proyecto SQL es un sistema completo para gestionar pedidos, productos, empl
 - Historial de cambios de pedidos
 - Consultas con JOINs, COUNT, GROUP BY y filtros
 - Subconsultas
-- Procedimientos almacenados
+- Procedimientos almacenados y calls
 
 ## 🧩 Consultas destacadas
 
