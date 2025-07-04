@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS Productos (
     proveedor_id INT NOT NULL,
     tipoproducto_id INT NULL,
     CONSTRAINT FK_proveedor_id FOREIGN KEY (proveedor_id) REFERENCES EmpleadosProveedores(proveedores_id),
-    CONSTRAINT FK_tipoproducto_id FOREIGN KEY (tipoproducto_id) REFERENCES Tipos_Productos(id)
+    CONSTRAINT FK_tipoproducto_id FOREIGN KEY (tipoproducto_id) REFERENCES Tipos_productos(id)
 ) ENGINE = INNODB;
 
 CREATE TABLE IF NOT EXISTS Clientes (
@@ -239,7 +239,7 @@ INSERT INTO Productos(id,nombre,precio,proveedor_id,tipoproducto_id) VALUES
 (7,'Audífonos Gamers',35.00,1,2),
 (8,'USBs',10.00,2,2),
 (9,'Luces Led',30.00,1,2),
-(10,'Micróno UHQ',250.00,1,2);
+(10,'Micrófono UHQ',250.00,1,2);
 
 INSERT INTO Clientes(id,nombre,emailclientes_id,teléfonosclientes_id,ubicación_id) VALUES
 (1,'Juan López',1,1,1), 
@@ -486,6 +486,65 @@ JOIN Productos pro ON prov.id = pro.proveedor_id
 JOIN DetallesPedidos dp ON pro.id = dp.producto_id
 GROUP BY prov.id;
 ```
+## -- 7. Subconsultas:
+```sql
+SELECT pro.nombre AS Producto,
+tp.tipo_nombre AS Categoría,
+pro.precio AS Precio
+FROM Productos pro
+JOIN Tipos_productos tp ON pro.tipoproducto_id = tp.id
+WHERE (pro.tipoproducto_id, pro.precio) IN (
+    SELECT pro.tipoproducto_id,
+    MAX(pro.precio)
+    FROM Productos pro
+    GROUP BY pro.tipoproducto_id
+);
+
+SELECT cl.nombre AS Cliente,
+sub.TotalPedidos
+FROM Clientes cl
+JOIN (
+    SELECT pe.cliente_id,
+    COUNT(pe.id) AS TotalPedidos
+    FROM Pedidos pe
+    GROUP BY pe.cliente_id
+    ORDER BY TotalPedidos DESC
+    LIMIT 1
+) sub ON cl.id = sub.cliente_id;
+
+SELECT em.nombre AS Empleado,
+em.salario AS Salario
+FROM DatosEmpleados em
+WHERE em.salario > (
+    SELECT AVG(em.salario)
+    FROM DatosEmpleados em
+);
+
+SELECT pro.nombre AS Producto
+FROM Productos pro
+WHERE pro.id IN (
+    SELECT dp.pedido_id
+    FROM DetallesPedidos dp
+    GROUP BY dp.pedido_id
+    HAVING SUM(dp.cantidad) > 5
+);
+
+SELECT pe.id AS Pedido
+FROM Pedidos pe
+WHERE pe.total > (
+    SELECT AVG(pe.total)
+    FROM Pedidos pe
+);
+
+
+```
+## -- 8. Procedimientos almacenados:
+```sql
+DELIMITER $$
+
+BEGIN
+```
+
 
 ## -- 7. Resultados:
 
